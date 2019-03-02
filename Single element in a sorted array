@@ -1,0 +1,5 @@
+def singleNonDuplicate(self, nums: 'List[int]') -> 'int':
+        Sum = sum(nums)
+        nums = set(nums)
+        newSum = sum(nums)
+        return 2 * newSum - Sum
