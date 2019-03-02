@@ -16,4 +16,4 @@ def findAndReplacePattern(self, words, pattern):
             if mb == False:
                 continue
             res.append(w)
-        return re
+        return res
