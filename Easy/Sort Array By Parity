@@ -1,0 +1,11 @@
+class Solution:
+    def sortArrayByParity(self, A):
+        ev = []
+        od = []
+        for i in A:
+            if i % 2 == 0:
+                ev.append(i)
+            else:
+                od.append(i)
+        new = ev + od
+        return new
