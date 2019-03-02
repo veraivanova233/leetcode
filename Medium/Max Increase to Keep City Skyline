@@ -1,0 +1,38 @@
+tb = []
+        lr = []
+        maxtb = []
+        maxlr = []
+        for i_r in range(len(grid)):
+            max1 = grid[i_r][0]
+            ij = [i_r, 0]
+            for i_c in range(len(grid[i_r])):
+                if grid[i_r][i_c] > max1:
+                    max1 = grid[i_r][i_c]
+                    ij = [i_r, i_c]
+            lr.append(ij)
+            maxlr.append(max1)
+        for i_c in range(len(grid[0])):
+            max2 = grid[0][i_c]
+            ij = [0, i_c]
+            for i_r in range(len(grid)):
+                if grid[i_r][i_c] > max2:
+                    max2 = grid[i_r][i_c]
+                    ij = [i_r, i_c]
+            tb.append(ij)
+            maxtb.append(max2)
+        gridNew = []
+        for i in range(len(grid)):
+            gridNew.append([])
+            for j in range(len(grid[i])):
+                gridNew[i].append(0)
+        for i in range(len(grid)):
+            for j in range(len(grid[i])):
+                if [i, j] not in tb and [i, j] not in lr:
+                    gridNew[i][j] = min(maxtb[j], maxlr[i])
+                else:
+                    gridNew[i][j] = grid[i][j]
+        total = 0
+        for i in range(len(gridNew)):
+            for j in range(len(gridNew[i])):
+                total += gridNew[i][j] - grid[i][j]
+        return total
