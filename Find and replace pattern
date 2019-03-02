@@ -1,0 +1,19 @@
+def findAndReplacePattern(self, words, pattern):
+        res = []
+        for w in words:
+            md = {}
+            mb = True
+            for i in range(len(w)):
+                if pattern[i] not in md:
+                    md[pattern[i]] = w[i]
+                if len(set(md.values())) < len(md):
+                    mb = False
+                    break
+                else:
+                    if md[pattern[i]] != w[i]:
+                        mb = False
+                        break
+            if mb == False:
+                continue
+            res.append(w)
+        return re
