@@ -1,0 +1,19 @@
+class Solution:
+    def complexNumberMultiply(self, a: 'str', b: 'str') -> 'str':
+        if '+' in a and '+' in b:
+            a = a.split('+')
+            b = b.split('+')
+        elif'+' in a and '-' in b:
+            a = a.split('+')
+            b = b.split('-')
+        elif '-' in a and '+' in b:
+            a = a.split('-')
+            b = b.split('+')
+        elif '-' in a and '-' in b:
+            a = a.split('-')
+            b = b.split('-')
+        a[1] = a[1].replace('i','')
+        b[1] = b[1].replace('i', '')
+        f = int(a[0])*int(b[0]) + (-1)*int(a[1])*int(b[1])
+        s = int(a[0])*int(b[1]) + int(a[1])*int(b[0])
+        return f'{str(f)}+{s}i'
