@@ -1,0 +1,28 @@
+class Solution(object):
+    def minAddToMakeValid(self, S):
+        """
+        :type S: str
+        :rtype: int
+        """
+        class Stack:
+            def __init__(self):
+                self.items = []
+
+            def push(self, item):
+                self.items.append(item)
+
+            def pop(self):
+                self.items.pop()
+
+            def peek(self):
+                if self.items == []:
+                    return None
+                else:
+                    return self.items[-1]
+        stack = Stack()
+        for par in S:
+            if par == ")" and stack.peek() == "(":
+                stack.pop()
+            else:
+                stack.push(par)
+        return len(stack.items)
