@@ -1,0 +1,11 @@
+deck_inds = [i for i in range(len(deck))]
+        deck.sort()
+        rev_inds = []
+        while len(deck_inds) > 0:
+            rev_inds.append(deck_inds.pop(0))
+            if len(deck_inds) > 0:
+                deck_inds.append(deck_inds.pop(0))
+        ans = [0 for i in range(len(deck))]
+        for i in range(len(deck)):
+            ans[rev_inds[i]] = deck[i]
+        return ans
