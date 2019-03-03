@@ -1,4 +1,6 @@
-deck_inds = [i for i in range(len(deck))]
+class Solution:
+    def deckRevealedIncreasing(self, deck):
+        deck_inds = [i for i in range(len(deck))]
         deck.sort()
         rev_inds = []
         while len(deck_inds) > 0:
