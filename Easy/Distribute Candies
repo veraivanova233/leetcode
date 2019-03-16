@@ -1,0 +1,12 @@
+class Solution(object):
+    def distributeCandies(self, candies):
+        """
+        :type candies: List[int]
+        :rtype: int
+        """
+        uni = list(set(candies))
+        sis = []
+        for i in range(len(uni)):
+            if i < len(candies) // 2:
+                sis.append(uni[i])
+        return len(sis)
