@@ -1,0 +1,27 @@
+class Solution(object):
+    def lemonadeChange(self, bills):
+        """
+        :type bills: List[int]
+        :rtype: bool
+        """
+        cash = []
+        for b in bills:
+            if b == 5:
+                cash.append(5)
+            elif b == 10:
+                if 5 in cash:
+                    del cash[cash.index(5)]
+                    cash.append(10)
+                else:
+                    return False
+            else:
+                if 10 in cash and 5 in cash:
+                    del cash[cash.index(10)]
+                    del cash[cash.index(5)]
+                elif cash.count(5) >= 3:
+                    del cash[cash.index(5)]
+                    del cash[cash.index(5)]
+                    del cash[cash.index(5)]
+                else:
+                    return False
+        return True
