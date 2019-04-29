@@ -1,0 +1,29 @@
+class Solution(object):
+    def partitionLabels(self, S):
+        """
+        :type S: str
+        :rtype: List[int]
+        """
+        def last_index(a, S):
+            for j in range(len(S[::-1])):
+                if S[len(S)-j-1] == a:
+                    return len(S)-j-1
+        end = 0
+        res = []
+        beg = 0
+        while end < len(S)-1:
+            end = last_index(S[beg], S)
+            mx = end
+            cur = -1
+            while cur < mx:
+                cur = cur + 1
+                if S[cur] != S[cur-1]:
+                    end = last_index(S[cur], S)
+                    if end > mx:
+                        mx = end
+            res.append(S[beg:end+1])
+            beg = end + 1
+        res1 = []
+        for i in res:
+            res1.append(len(i))
+        return res1      
